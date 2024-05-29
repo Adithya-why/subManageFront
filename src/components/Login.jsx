@@ -11,6 +11,8 @@ export default function Login(){
         username: "",
         password: ""
     });
+    //to store errmsg to be displayed if no user or wrong passowrd
+    let [errmsg,seterr] = useState("")
 
 
     function handleChange(e){
@@ -52,6 +54,7 @@ export default function Login(){
 
         else{
             console.log(result.msg);
+            seterr(result.msg);
         }
     }
 
@@ -60,23 +63,25 @@ export default function Login(){
 
 
     return(
-        <div className=" ">
-            <h1>Login</h1>
-            <form className="" onSubmit={(e)=> sendData(e)}>
+        <div className="flex flex-col items-center mt-10 h-1/2 justify-evenly gap-5">
+            <h1 className="text-4xl text-green-600 font-semibold">Login</h1>
+            <form className="flex flex-col items-center justify-evenly gap-10 h-auto mt-10" onSubmit={(e)=> sendData(e)}> 
 
-                <div>
+                <div className="flex flex-col items-center justify-evenly text-xl font-medium">
                     <label htmlFor="username">Username</label>
                     <input id="username" type="text" name="username" onChange={(e)=> handleChange(e)}/>
+                    
                 </div>
 
 
-                <div>
+                <div className="flex flex-col items-center justify-evenly text-xl font-medium">
                     <label htmlFor="password">Password</label>
                     <input id="password" type="password" name="password" onChange={(e)=> handleChange(e)}/>
                 </div>
 
+                <div className=" text-red-700 text-lg">{errmsg}</div>
 
-                <button type="submit">Log in</button>
+                <button type="submit" className="rounded p-3 text-lg font-bold bg-green-600 text-white">Log in</button>
 
             </form>
 
