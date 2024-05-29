@@ -31,8 +31,11 @@ html,body{
   }
 
 
-  .dc{
-    opacity: 1;
+  input{
+    border: 2px solid green;
   }
+
+
+  
   
 

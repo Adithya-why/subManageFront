@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom"
+
 export default function DesignCard(){
 
 
-
+    //used for landing page 
+    
 
     return(
         <div className=" dc flex flex-col items-center w-full h-full pt-20 gap-10  bg-[#F5EEC8] text-green-600">
@@ -13,7 +16,7 @@ export default function DesignCard(){
 
 
             <div>
-                <button className=" rounded-3xl p-4 text-lg font-bold bg-green-600 text-white">Get started</button>
+                <button className=" rounded-3xl p-4 text-lg font-bold bg-green-600 text-white"><Link to={"/login"}>Get started</Link></button>
             </div>
         </div>
     )

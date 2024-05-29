@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-
 import './App.css'
 import NavBar from './components/NavBar'
 import DesignCard from './components/DesignCard'
+import Login from './components/Login'
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
 
         <Route path='/' element={<DesignCard/>}/>
 
+        <Route path='/login' element={<Login/>}/>
 
         </Routes>
       </Router>
