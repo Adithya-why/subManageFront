@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom"
-
+//shown in all pages
 
 export default function NavBar({ user, setuser }){
 
+
+    //sets global app user object to {}
+    //removes auth jwt
     function logout(){
         setuser({});
 
         localStorage.removeItem("token");
     }
 
+    //has links to other pages
+    //if user is logged in shows logout and other stuff
+    //if not shows login and sign up
     return(
        <div className="navbar dm-sans-class w-full h-full bg-amber-800 flex items-center justify-evenly">
 

@@ -3,7 +3,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-
+//very similar to login 
+//just request to different url
 export default function Register( { setuser }){
     //used to go to other pages
     let navigate = useNavigate();

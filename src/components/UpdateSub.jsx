@@ -8,7 +8,7 @@ export default function UpdateSub(){
     //this was passed when coming to this location
     //no need to get id from url and fetch again
     let { state } = useLocation();
-    console.log(state.sub);
+    // console.log(state.sub);
 
     //stuff copied from new sub 
     //same logic just prefill data in input and send update request
@@ -35,7 +35,8 @@ export default function UpdateSub(){
         // console.log(formData);
     }
 
-
+    //makes update request with id
+    //data in body
     async function sendData(e){
         e.preventDefault();
 

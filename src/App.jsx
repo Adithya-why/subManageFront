@@ -22,10 +22,14 @@ function App() {
   //used to get user after login or register
   //user doc returned from post request is stored here
   //used to display stuff in navbar
+  //set to {} after logout 
+  //passed to all components for user access and logout
   let [user, setuser] = useState({});
 
   
-
+  //navbar is always shown
+  //rest chosen by router path
+  //:id is url param
   
 
   return (

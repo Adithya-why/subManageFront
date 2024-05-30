@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 //used to show login form
+//gets user data , makes POST req and gets jwt to store in ls
 
 export default function Login( { setuser }){
     //used to go to other pages
@@ -11,10 +12,14 @@ export default function Login( { setuser }){
         username: "",
         password: ""
     });
+
     //to store errmsg to be displayed if no user or wrong passowrd
+    //errmsg is returned from backend and store here
     let [errmsg,seterr] = useState("")
 
 
+
+    //stores formdata as it is being typed in
     function handleChange(e){
         let temp = formData;
 
@@ -27,6 +32,8 @@ export default function Login( { setuser }){
     }
 
     //make post request with credentials to get jwt
+    //if successfull store jwt in ls and redirect
+    //if not show errmsg
     async function sendData(e){
 
         e.preventDefault();
@@ -45,7 +52,7 @@ export default function Login( { setuser }){
         });
 
         let result = await res.json();
-        console.log(result);
+        // console.log(result);
 
         if(result.login===1){
             setuser(result.user);
@@ -54,7 +61,7 @@ export default function Login( { setuser }){
         }
 
         else{
-            console.log(result.msg);
+            // console.log(result.msg);
             seterr(result.msg);
         }
     }

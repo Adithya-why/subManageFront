@@ -1,6 +1,8 @@
 import { useEffect, useState, useReducer } from "react"
 import { Link, useNavigate } from "react-router-dom";
 //page for all subs
+
+//shows subs in a tile with options
 export default function Subs(){
 
     // //stupid shit to force component to rerender after deleting a sub
@@ -9,8 +11,12 @@ export default function Subs(){
 
     let navigate = useNavigate();
 
+
+    //fectches all subs  and stores them
     let [subs,setsubs] = useState({})
 
+
+    //makes fetch request
     useEffect(()=>{
         //get all subs
 
@@ -31,7 +37,9 @@ export default function Subs(){
             let subs = await res.json();
             // console.log(subs);
             setsubs(subs.subs);
+            
 
+            //cleanup function
             return ()=>{
                 setsubs({})
             }
@@ -46,7 +54,7 @@ export default function Subs(){
 
 
     let subarr = []
-
+    //stores every sub tile in array to display
     for(let i = 0;i<subs.length;i++){
         let ele = subs[i];
         subarr.push(<SubTile sub={ele} key={i}/>)
@@ -73,13 +81,15 @@ export default function Subs(){
 
 
 //comp to show a single tile 
-
+//has options for delete and update
 function SubTile({ sub }){
 
     
 
     let navigate = useNavigate();
 
+
+    //delete request made with _id
     async function deleteSub(){
         let id = sub._id;
 
@@ -105,6 +115,8 @@ function SubTile({ sub }){
     //navigate can actually pass data 
     //and cam be retreived with useLocation hook
     //so update button navigates to /update/id with data
+
+    //the sub object that is being updated is passed to update page form
 
 
 

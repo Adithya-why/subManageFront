@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom"
 
 export default function DesignCard({ user }){
-
+    
 
     //used for landing page 
 
+
+    //gets uer tot determin where clicking get started button leads to
     //sets where to be redirected based on login or not
+    
     let startPath = ""
     if(user.username){
         startPath="/subscriptions"

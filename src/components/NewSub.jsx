@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+//shows form to create a new sub
 export default function NewSub(){
 
     let navigate = useNavigate();
@@ -15,7 +17,7 @@ export default function NewSub(){
 
     });
 
-
+    //store data as it is being typed in
     function handleChange(e){
         let temp = formData;
 
@@ -27,7 +29,9 @@ export default function NewSub(){
         // console.log(formData);
     }
 
-
+    //send data to created sub
+    //uses jwt 
+    //if not logged in redirects
     async function sendData(e){
         e.preventDefault();
 
@@ -57,7 +61,7 @@ export default function NewSub(){
 
 
         let ress = await res.json();
-        console.log(ress);
+        // console.log(ress);
         navigate("/")
     }
 
