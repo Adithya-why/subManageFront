@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import DesignCard from './components/DesignCard'
 import Login from './components/Login'
 import Register from './components/Register';
+import Subs from './components/Subs';
 
 
 
@@ -39,6 +40,8 @@ function App() {
         <Route path='/login' element={<Login setuser={setuser}/>}/>
 
         <Route path='/register' element={<Register setuser={setuser}/>}/>
+
+        <Route path='/subscriptions' element={<Subs/>}/>
 
         </Routes>
       </Router>

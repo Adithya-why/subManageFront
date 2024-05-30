@@ -28,6 +28,8 @@ export default function NavBar({ user, setuser }){
                 <div className="basis-1/3 flex items-center justify-evenly">
                     <button className=" p-2 bg-green-600 rounded text-white" onClick={logout}>Logout</button>
 
+                    <Link to={"/subscriptions"}><button className=" p-2 bg-green-600 rounded text-white">View Subs</button></Link>
+
                     <div className="text-white text-lg font-medium">Welcome {user.username}</div>
                 
                 
