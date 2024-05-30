@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <Router>
-        <NavBar user={user}/>
+        <NavBar user={user} setuser={setuser}/>
 
 
         <Routes>

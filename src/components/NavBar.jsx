@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom"
 
 
-export default function NavBar({ user }){
+export default function NavBar({ user, setuser }){
 
+    function logout(){
+        setuser({});
 
+        localStorage.removeItem("token");
+    }
 
     return(
        <div className="navbar dm-sans-class w-full h-full bg-amber-800 flex items-center justify-evenly">
@@ -21,7 +25,7 @@ export default function NavBar({ user }){
 
                 :
 
-                <button className="p-2 bg-green-600 rounded">Logout</button>
+                <button className="p-2 bg-green-600 rounded" onClick={logout}>Logout</button>
 
 
                 }
