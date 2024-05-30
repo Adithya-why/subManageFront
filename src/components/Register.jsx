@@ -1,8 +1,10 @@
+//used to show sign up page
+
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-//used to show login form
 
-export default function Login( { setuser }){
+
+export default function Register( { setuser }){
     //used to go to other pages
     let navigate = useNavigate();
 
@@ -11,8 +13,9 @@ export default function Login( { setuser }){
         username: "",
         password: ""
     });
-    //to store errmsg to be displayed if no user or wrong passowrd
-    let [errmsg,seterr] = useState("")
+
+    // //to store errmsg to be displayed if no user or wrong passowrd
+    // let [errmsg,seterr] = useState("")
 
 
     function handleChange(e){
@@ -32,7 +35,7 @@ export default function Login( { setuser }){
         e.preventDefault();
         
 
-        let res = await fetch("http://localhost:3000/subscription/login",{
+        let res = await fetch("http://localhost:3000/subscription/register",{
             method: "POST",
             mode: "cors",
             body: JSON.stringify({
@@ -45,18 +48,16 @@ export default function Login( { setuser }){
         });
 
         let result = await res.json();
-        console.log(result);
+        setuser(result.user);
 
-        if(result.login===1){
-            setuser(result.user);
-            localStorage.setItem("token",result.token);
-            navigate("/")
-        }
+        
+        localStorage.setItem("token",result.token);
+        navigate("/");
+        
 
-        else{
-            console.log(result.msg);
-            seterr(result.msg);
-        }
+        
+           
+        
     }
 
 
@@ -65,7 +66,7 @@ export default function Login( { setuser }){
 
     return(
         <div className="flex flex-col items-center mt-10 h-1/2 justify-evenly gap-5">
-            <h1 className="text-4xl text-green-600 font-semibold">Login</h1>
+            <h1 className="text-4xl text-green-600 font-semibold">Sign Up</h1>
             <form className="flex flex-col items-center justify-evenly gap-10 h-auto mt-10" onSubmit={(e)=> sendData(e)}> 
 
                 <div className="flex flex-col items-center justify-evenly text-xl font-medium">
@@ -80,9 +81,9 @@ export default function Login( { setuser }){
                     <input id="password" type="password" name="password" onChange={(e)=> handleChange(e)}/>
                 </div>
 
-                <div className=" text-red-700 text-lg">{errmsg}</div>
+                {/* <div className=" text-red-700 text-lg">{errmsg}</div> */}
 
-                <button type="submit" className="rounded p-3 text-lg font-bold bg-green-600 text-white">Log in</button>
+                <button type="submit" className="rounded p-3 text-lg font-bold bg-green-600 text-white">Sign up</button>
 
             </form>
 
