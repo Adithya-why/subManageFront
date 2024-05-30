@@ -25,7 +25,7 @@ export default function NavBar({ user, setuser }){
 
                 :
 
-                <button className="p-2 bg-green-600 rounded" onClick={logout}>Logout</button>
+                <div className="basis-1/3"><button className=" p-2 bg-green-600 rounded text-white" onClick={logout}>Logout</button></div>
 
 
                 }
