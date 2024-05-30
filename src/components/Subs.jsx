@@ -26,7 +26,7 @@ export default function Subs(){
             });
 
             let subs = await res.json();
-            console.log(subs);
+            // console.log(subs);
             setsubs(subs.subs);
 
             return ()=>{
@@ -41,9 +41,42 @@ export default function Subs(){
         getsubs();
     },[])
 
+
+    let subarr = []
+
+    for(let i = 0;i<subs.length;i++){
+        let ele = subs[i];
+        subarr.push(<SubTile sub={ele} key={i}/>)
+    }
+
     return(
-        <div>
-            HI I AM ALL SUBS
+        <div className="subgrid">
+        
+            {subarr}
+        </div>
+    )
+}
+
+
+
+
+
+
+//comp to show a single tile 
+
+function SubTile({ sub }){
+
+
+
+    return(
+        <div className="mt-10 h-full bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
+            <h1 className="text-2xl">{sub.name}</h1>
+
+            <div className="flex flex-col items-center">
+                <div>Price:  ₹{sub.price}</div>
+                <div>Purchased On: {sub.startDate}</div>
+                <div>Duration: {sub.duration} Days</div>
+            </div>
         </div>
     )
 }
