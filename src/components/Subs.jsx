@@ -102,6 +102,11 @@ function SubTile({ sub }){
     }
 
 
+    //navigate can actually pass data 
+    //and cam be retreived with useLocation hook
+    //so update button navigates to /update/id with data
+
+
 
     return(
         <div className="mt-10 h-auto bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
@@ -112,6 +117,7 @@ function SubTile({ sub }){
                 <div>Purchased On: {sub.startDate}</div>
                 <div>Duration: {sub.duration} Days</div>
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={deleteSub}>Delete</button>
+                <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
             </div>
         </div>
     )
