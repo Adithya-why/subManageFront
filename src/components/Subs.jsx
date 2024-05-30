@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //page for all subs
 export default function Subs(){
 
@@ -50,9 +50,16 @@ export default function Subs(){
     }
 
     return(
-        <div className="subgrid">
-        
-            {subarr}
+        <div>
+            <div className="subgrid">
+            
+                {subarr}
+            </div>
+
+
+            <div>
+                <Link to={"/add"}><button className="newbutton p-2 bg-green-600 rounded text-white font-medium">Add Subscription</button></Link>
+            </div>
         </div>
     )
 }
@@ -69,7 +76,7 @@ function SubTile({ sub }){
 
 
     return(
-        <div className="mt-10 h-full bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
+        <div className="mt-10 h-auto bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
             <h1 className="text-2xl">{sub.name}</h1>
 
             <div className="flex flex-col items-center">

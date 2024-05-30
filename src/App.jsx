@@ -8,6 +8,7 @@ import DesignCard from './components/DesignCard'
 import Login from './components/Login'
 import Register from './components/Register';
 import Subs from './components/Subs';
+import NewSub from './components/NewSub';
 
 
 
@@ -42,6 +43,9 @@ function App() {
         <Route path='/register' element={<Register setuser={setuser}/>}/>
 
         <Route path='/subscriptions' element={<Subs/>}/>
+
+
+        <Route path='/add' element={<NewSub/>}/>
 
         </Routes>
       </Router>
