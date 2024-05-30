@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom"
 
-export default function DesignCard(){
+export default function DesignCard({ user }){
 
 
     //used for landing page 
+
+    //sets where to be redirected based on login or not
+    let startPath = ""
+    if(user.username){
+        startPath="/subscriptions"
+    }else{
+        startPath="/login"
+    }
     
 
     return(
@@ -16,7 +24,7 @@ export default function DesignCard(){
 
 
             <div>
-                <button className=" rounded-3xl p-4 text-lg font-bold bg-green-600 text-white"><Link to={"/login"}>Get started</Link></button>
+                <button className=" rounded-3xl p-4 text-lg font-bold bg-green-600 text-white"><Link to={startPath}>Get started</Link></button>
             </div>
         </div>
     )

@@ -36,7 +36,7 @@ function App() {
         <Routes>
 
 
-        <Route path='/' element={<DesignCard/>} />
+        <Route path='/' element={<DesignCard user={user}/>} />
 
         <Route path='/login' element={<Login setuser={setuser}/>}/>
 
