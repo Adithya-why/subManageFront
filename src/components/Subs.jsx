@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useReducer } from "react"
 import { Link, useNavigate } from "react-router-dom";
 //page for all subs
 export default function Subs(){
+
+    // //stupid shit to force component to rerender after deleting a sub
+    // const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 
     let navigate = useNavigate();
@@ -73,16 +76,42 @@ export default function Subs(){
 
 function SubTile({ sub }){
 
+    
+
+    let navigate = useNavigate();
+
+    async function deleteSub(){
+        let id = sub._id;
+
+        let res = await fetch("http://localhost:3000/subscription/"+id, {
+            method: "DELETE",
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": localStorage.getItem("token"),
+            }
+
+        });
+
+
+        let ress = await res.json();
+        console.log(ress);
+
+        
+        navigate("/")
+    }
+
 
 
     return(
         <div className="mt-10 h-auto bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
             <h1 className="text-2xl">{sub.name}</h1>
 
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center gap-5">
                 <div>Price:  ₹{sub.price}</div>
                 <div>Purchased On: {sub.startDate}</div>
                 <div>Duration: {sub.duration} Days</div>
+                <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={deleteSub}>Delete</button>
             </div>
         </div>
     )
