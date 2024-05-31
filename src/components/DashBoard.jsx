@@ -1,11 +1,16 @@
 import { useState,useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 
-export default function DashBoard(){
+export default function DashBoard({ user }){
 
     let [subs,setsubs] = useState({});
 
     let navigate = useNavigate();
+
+    //if not logged in log in
+    if(!user.username){
+        navigate("/login");
+    }
 
     //makes fetch request
     useEffect(()=>{
@@ -46,6 +51,7 @@ export default function DashBoard(){
 
     let count = subs.length;
     let cost = 0
+
 
     for(let i = 0;i<count;i++){
         cost+= subs[i].price;

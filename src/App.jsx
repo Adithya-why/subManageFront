@@ -56,7 +56,7 @@ function App() {
         <Route path='/update/:id' element={<UpdateSub/>}/>
 
 
-        <Route path='/dashboard' element={<DashBoard/>}/>
+        <Route path='/dashboard' element={<DashBoard user={user}/>}/>
 
         </Routes>
       </Router>
