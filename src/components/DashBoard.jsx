@@ -50,12 +50,20 @@ export default function DashBoard({ user }){
 
 
     let count = subs.length;
-    let cost = 0
+    let cost = 0;
+
+    let pricePerMonth = 0
 
 
     for(let i = 0;i<count;i++){
         cost+= subs[i].price;
+        
+        pricePerMonth += (subs[i].price / subs[i].duration )*12 ;
+    
     }
+
+
+    
 
 
 
@@ -67,6 +75,8 @@ export default function DashBoard({ user }){
             <div className="flex justify-center gap-10  text-2xl  text-white font-thin">
                 <div className="p-4 bg-amber-800 rounded-lg">{count} Subscriptions</div>
                 <div className="p-4 bg-amber-800 rounded-lg">₹ {cost} Spent</div>
+                <div className="p-4 bg-amber-800 rounded-lg">₹ {pricePerMonth.toFixed(0)} Spent per month</div>
+                <div className="p-4 bg-amber-800 rounded-lg">₹ {(pricePerMonth/12).toFixed(0)} Spent per Day</div>
             </div>
 
             

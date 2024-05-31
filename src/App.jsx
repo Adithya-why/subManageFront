@@ -19,6 +19,8 @@ import DashBoard from './components/DashBoard';
 
 function App() {
 
+  //used to login if jwt present
+
 
   //used to get user after login or register
   //user doc returned from post request is stored here
