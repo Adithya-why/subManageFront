@@ -10,6 +10,7 @@ import Register from './components/Register';
 import Subs from './components/Subs';
 import NewSub from './components/NewSub';
 import UpdateSub from './components/UpdateSub';
+import DashBoard from './components/DashBoard';
 
 
 
@@ -53,6 +54,9 @@ function App() {
         <Route path='/add' element={<NewSub/>}/>
 
         <Route path='/update/:id' element={<UpdateSub/>}/>
+
+
+        <Route path='/dashboard' element={<DashBoard/>}/>
 
         </Routes>
       </Router>

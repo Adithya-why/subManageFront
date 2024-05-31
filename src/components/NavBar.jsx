@@ -36,6 +36,8 @@ export default function NavBar({ user, setuser }){
 
                     <Link to={"/subscriptions"}><button className=" p-2 bg-green-600 rounded text-white">View Subs</button></Link>
 
+                    <Link to={"/dashboard"}><button className=" p-2 bg-green-600 rounded text-white">Dashboard</button></Link>
+
                     <div className="text-white text-lg font-medium">Welcome {user.username}</div>
                 
                 
