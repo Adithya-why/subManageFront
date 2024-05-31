@@ -112,6 +112,15 @@ function SubTile({ sub }){
     }
 
 
+    //used to find the expiry date
+    //start with purchased date
+    //adds duration days to the date
+    let expiry =  new Date(sub.startDate);
+    expiry.setDate(expiry.getDate() + sub.duration);
+    
+
+
+
     //navigate can actually pass data 
     //and cam be retreived with useLocation hook
     //so update button navigates to /update/id with data
@@ -128,6 +137,7 @@ function SubTile({ sub }){
                 <div>Price:  ₹{sub.price}</div>
                 <div>Purchased On: {sub.startDate}</div>
                 <div>Duration: {sub.duration} Days</div>
+                <div>Expires on: {expiry.toDateString()}</div>
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={deleteSub}>Delete</button>
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
             </div>
