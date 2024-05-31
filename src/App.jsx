@@ -48,7 +48,7 @@ function App() {
 
         <Route path='/register' element={<Register setuser={setuser}/>}/>
 
-        <Route path='/subscriptions' element={<Subs/>}/>
+        <Route path='/subscriptions' element={<Subs user={user}/>}/>
 
 
         <Route path='/add' element={<NewSub/>}/>

@@ -3,13 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 //page for all subs
 
 //shows subs in a tile with options
-export default function Subs(){
+export default function Subs( { user }){
 
     // //stupid shit to force component to rerender after deleting a sub
     // const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 
     let navigate = useNavigate();
+
+    if(!user.username){
+        navigate("/login");
+    }
 
 
     //fectches all subs  and stores them
