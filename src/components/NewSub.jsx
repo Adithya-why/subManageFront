@@ -90,7 +90,7 @@ export default function NewSub(){
 
                 <div className="flex flex-col items-center justify-evenly text-xl font-medium">
                     <label htmlFor="purchased">Purchased On</label>
-                    <input id="purchased" type="text" name="startDate" onChange={(e)=> handleChange(e)}/>
+                    <input id="purchased" type="date" name="startDate" onChange={(e)=> handleChange(e)}/>
                     
                 </div>
 
