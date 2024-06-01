@@ -58,18 +58,39 @@ export default function DashBoard({ user }){
     },[]);
 
 
+
+    //stats for displaying
     let count = subs.length;
     let cost = 0;
 
     let pricePerMonth = 0
 
 
+    //find earliest renewal
+    let earlyRenewal = new Date();
+    let earlySub = {};
+
+
     for(let i = 0;i<count;i++){
         cost+= subs[i].price;
-        
         pricePerMonth += (subs[i].price / subs[i].duration )*30 ;
-    
+
+        let temp = new Date(subs[i].startDate);
+        //find renewal date
+        //
+        temp.setDate(temp.getDate() + subs[i].duration);
+
+        if(temp.getTime() < earlyRenewal.getTime()){
+            earlyRenewal = temp;
+            earlySub = subs[i];
+        }
+
     }
+
+
+    
+
+    
 
 
    
@@ -151,9 +172,14 @@ export default function DashBoard({ user }){
 
 
 
-            <div>
-                <div>
-                    <h2>Earliest renewal</h2>
+            <div className="flex justify-center bg-green-600 p-10 text-white rounded mb-10 mt-10">
+                <div className="flex flex-col gap-10">
+                    <h2 className="text-3xl">Earliest renewal</h2>
+
+                    <div>
+                        <div>{earlySub.name}</div>
+                        <div>Renewal on {earlyRenewal.toDateString()}</div>
+                    </div>
 
                 </div>
 

@@ -134,7 +134,7 @@ function SubTile({ sub }){
 
 
     return(
-        <div className="mt-10 h-auto bg-slate-100 rounded-lg flex flex-col items-center justify-evenly">
+        <div className="mt-10 h-auto bg-green-600 text-white rounded-lg flex flex-col items-center justify-evenly m-5">
             <h1 className="text-2xl">{sub.name}</h1>
 
             <div className="flex flex-col items-center gap-5">
