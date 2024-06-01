@@ -1,7 +1,16 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect,useRef } from "react"
 import { useNavigate } from "react-router-dom";
 
+
+//for charts 
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
 export default function DashBoard({ user }){
+
+    //for tree shaking
+    ChartJS.register(ArcElement, Tooltip, Legend);
+
 
     let [subs,setsubs] = useState({});
 
@@ -63,6 +72,11 @@ export default function DashBoard({ user }){
     }
 
 
+   
+    //prepare data for graphs
+
+    let gdata = Array.from(subs);
+
     
 
 
@@ -79,6 +93,51 @@ export default function DashBoard({ user }){
                 <div className="p-4 bg-amber-800 rounded-lg">₹ {pricePerMonth.toFixed(0)} Spent per month</div>
                 <div className="p-4 bg-amber-800 rounded-lg">₹ {(pricePerMonth/30).toFixed(0)} Spent per Day</div>
             </div>
+
+            <div className=" ">
+                <Doughnut data={{
+                    labels: gdata.map((sub)=> sub.name),
+                    datasets: [{
+                        label: "Spends Per Year",
+                        data: gdata.map((sub) => (sub.price/sub.duration)*365),
+                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                        hoverOffset: 5,
+                    }]
+                }}/>
+
+
+
+                <Doughnut data={{
+                    labels: gdata.map((sub)=> sub.name),
+                    datasets: [{
+                        label: "Spends Per Month",
+                        data: gdata.map((sub) => (sub.price/sub.duration)*30),
+                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                        hoverOffset: 5,
+                    }]
+                }}/>
+
+
+
+                <Doughnut data={{
+                    labels: gdata.map((sub)=> sub.name),
+                    datasets: [{
+                        label: "Spends Per Day",
+                        data: gdata.map((sub) => (sub.price/sub.duration)*1),
+                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                        hoverOffset: 5,
+                    }]
+                }}/>
+
+
+                
+
+            
+
+            </div>
+
+
+            
 
             
         </div>
