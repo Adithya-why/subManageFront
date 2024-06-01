@@ -66,7 +66,7 @@ export default function Subs( { user }){
 
     return(
         <div>
-            <div className="subgrid">
+            <div className="subgrid m-10">
             
                 {subarr}
             </div>
@@ -134,10 +134,10 @@ function SubTile({ sub }){
 
 
     return(
-        <div className="mt-10 h-auto bg-green-600 text-white rounded-lg flex flex-col items-center justify-evenly m-5">
-            <h1 className="text-2xl">{sub.name}</h1>
+        <div className=" h-auto bg-green-600 text-white rounded-lg flex flex-col items-center justify-evenly gap-8">
+            <h1 className="text-2xl font-bold">{sub.name}</h1>
 
-            <div className="flex flex-col items-center gap-5">
+            <div className="flex flex-col items-center gap-3">
                 <div>Price:  ₹{sub.price}</div>
                 <div>Purchased On: {sub.startDate}</div>
                 <div>Duration: {sub.duration} Days</div>
