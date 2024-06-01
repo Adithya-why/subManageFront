@@ -53,6 +53,21 @@ html,body{
     right: 1rem;
   }
 
+
+  .cgrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 350px;
+    gap: 6rem;
+    overflow: visible;
+  }
+
+
+  .cgrid h2{
+    color: brown;
+    font-weight: 200;
+  }
+
   
   
 

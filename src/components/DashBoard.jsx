@@ -94,45 +94,70 @@ export default function DashBoard({ user }){
                 <div className="p-4 bg-amber-800 rounded-lg">₹ {(pricePerMonth/30).toFixed(0)} Spent per Day</div>
             </div>
 
-            <div className=" ">
-                <Doughnut data={{
-                    labels: gdata.map((sub)=> sub.name),
-                    datasets: [{
-                        label: "Spends Per Year",
-                        data: gdata.map((sub) => (sub.price/sub.duration)*365),
-                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
-                        hoverOffset: 5,
-                    }]
-                }}/>
+            <div className="cgrid">
+
+
+                <div className="flex flex-col items-center gap-10">
+                    <Doughnut data={{
+                        labels: gdata.map((sub)=> sub.name),
+                        datasets: [{
+                            label: "Spends Per Year",
+                            data: gdata.map((sub) => (sub.price/sub.duration)*365),
+                            backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                            hoverOffset: 5,
+                            hoverBackgroundColor: '#92400E',
+                        }]
+                    }}/>
+
+
+                    <h2>Spends per Year</h2>
+                </div>
+
+
+                <div className="flex flex-col items-center gap-10">
+                    <Doughnut data={{
+                        labels: gdata.map((sub)=> sub.name),
+                        datasets: [{
+                            label: "Spends Per Month",
+                            data: gdata.map((sub) => (sub.price/sub.duration)*30),
+                            backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                            hoverOffset: 5,
+                            hoverBackgroundColor: '#92400E',
+                        }]
+                    }}/>
+
+                    <h2>Spends per Month</h2>
+                </div>
 
 
 
-                <Doughnut data={{
-                    labels: gdata.map((sub)=> sub.name),
-                    datasets: [{
-                        label: "Spends Per Month",
-                        data: gdata.map((sub) => (sub.price/sub.duration)*30),
-                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
-                        hoverOffset: 5,
-                    }]
-                }}/>
+                <div className="flex flex-col items-center gap-10">
+                    <Doughnut data={{
+                        labels: gdata.map((sub)=> sub.name),
+                        datasets: [{
+                            label: "Spends Per Day",
+                            data: gdata.map((sub) => (sub.price/sub.duration)*1),
+                            backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                            hoverOffset: 5,
+                            hoverBackgroundColor: '#92400E',
+                        }]
+                    }}/>
+
+                    <h2>Spends per Day</h2>
+                </div>
+
+
+            </div>
 
 
 
-                <Doughnut data={{
-                    labels: gdata.map((sub)=> sub.name),
-                    datasets: [{
-                        label: "Spends Per Day",
-                        data: gdata.map((sub) => (sub.price/sub.duration)*1),
-                        backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
-                        hoverOffset: 5,
-                    }]
-                }}/>
+            <div>
+                <div>
+                    <h2>Earliest renewal</h2>
+
+                </div>
 
 
-                
-
-            
 
             </div>
 
