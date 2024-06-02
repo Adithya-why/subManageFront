@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 
 
@@ -20,6 +20,35 @@ import DashBoard from './components/DashBoard';
 function App() {
 
   //used to login if jwt present
+
+  useEffect(()=>{
+
+    async function getUserWithJWT(){
+
+      let res = await fetch("http://localhost:3000/subscription/loginjwt",{
+        method: "POST",
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "Authorization": localStorage.getItem("token"),
+        }
+      });
+
+
+      let ress = await res.json();
+      let user = ress.user;
+
+
+      setuser(user);
+      console.log("SET from jwt ", user);
+    }
+
+    //if jwt present thenget user
+    if(localStorage.getItem("token")){
+      getUserWithJWT();
+    }
+
+  },[]);
 
 
   //used to get user after login or register
