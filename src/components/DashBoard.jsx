@@ -67,7 +67,7 @@ export default function DashBoard({ user }){
 
 
     //find earliest renewal
-    let earlyRenewal = new Date();
+    let earlyRenewal = new Date('01-01-3000');
     let earlySub = {};
 
 
@@ -86,6 +86,8 @@ export default function DashBoard({ user }){
         }
 
     }
+
+    
 
 
     
