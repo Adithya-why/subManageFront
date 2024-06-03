@@ -7,6 +7,7 @@ export default {
       colors: {
         sandy: "#F5EEC8",
         sea: "#7bdff2",
+        pgreen: "#60d394",
       }
     },
   },

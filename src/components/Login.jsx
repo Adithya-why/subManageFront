@@ -72,7 +72,7 @@ export default function Login( { setuser }){
 
     return(
         <div className="flex flex-col items-center mt-10 h-1/2 justify-evenly gap-5  bg-sandy">
-            <h1 className="text-4xl text-green-600 font-semibold">Login</h1>
+            <h1 className="text-4xl text-pgreen font-semibold">Login</h1>
             <form className="flex flex-col items-center justify-evenly gap-10 h-auto mt-10" onSubmit={(e)=> sendData(e)}> 
 
                 <div className="flex flex-col items-center justify-evenly text-xl font-medium">
@@ -89,7 +89,7 @@ export default function Login( { setuser }){
 
                 <div className=" text-red-700 text-lg">{errmsg}</div>
 
-                <button type="submit" className="rounded p-3 text-lg font-bold bg-green-600 text-white">Log in</button>
+                <button type="submit" className="rounded p-3 text-lg font-bold bg-pgreen text-white">Log in</button>
 
             </form>
 
