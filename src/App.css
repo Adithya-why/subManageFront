@@ -43,8 +43,8 @@ html,body{
 
   .subgrid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    grid-auto-rows: 400px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 150px;
     gap: 2rem;
     
   }
@@ -54,7 +54,9 @@ html,body{
   .newbutton{
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    right: 2rem;
+
+    border: 2px solid brown;
   }
 
 
