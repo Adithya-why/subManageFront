@@ -139,6 +139,43 @@ function SubTile({ sub }){
     //function to handle renew function
     //basically just update the starting date to today
     
+    async function renew(){
+
+        //new date created
+        let date = new Date();
+        var newStart = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+                    .toISOString()
+                    .split("T")[0];
+        
+        //update with new date
+        let res = await fetch("http://localhost:3000/subscription/"+sub._id ,{
+            method: "PUT",
+
+            body: JSON.stringify({
+                name: sub.name,
+                price: sub.price,
+                startDate: newStart,
+                duration: sub.duration,
+            }),
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": localStorage.getItem("token"),
+
+            }
+        });
+
+
+
+        let ress = await res.json();
+        console.log(ress);
+
+
+        navigate("/");
+
+
+
+    }
 
 
 
@@ -175,6 +212,7 @@ function SubTile({ sub }){
 
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={deleteSub}>Delete</button>
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
+                <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={renew}>Renew</button>
             </div>
         </div>
     )
