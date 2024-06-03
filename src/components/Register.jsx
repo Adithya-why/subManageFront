@@ -12,7 +12,8 @@ export default function Register( { setuser }){
     //store data being typed in
     let [formData, setForm] = useState({
         username: "",
-        password: ""
+        password: "",
+        email: "",
     });
 
     // //to store errmsg to be displayed if no user or wrong passowrd
@@ -42,6 +43,7 @@ export default function Register( { setuser }){
             body: JSON.stringify({
                 username: formData.username,
                 password: formData.password,
+                email: formData.email,
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -73,6 +75,12 @@ export default function Register( { setuser }){
                 <div className="flex flex-col items-center justify-evenly text-xl font-medium">
                     <label htmlFor="username">Username</label>
                     <input id="username" type="text" name="username" onChange={(e)=> handleChange(e)}/>
+                    
+                </div>
+
+                <div className="flex flex-col items-center justify-evenly text-xl font-medium">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="email" name="email" onChange={(e)=> handleChange(e)}/>
                     
                 </div>
 
