@@ -40,7 +40,7 @@ function App() {
 
 
       setuser(user);
-      console.log("SET from jwt ", user);
+      // console.log("SET from jwt ", user);
     }
 
     //if jwt present thenget user

@@ -121,6 +121,23 @@ function SubTile({ sub }){
     //adds duration days to the date
     let expiry =  new Date(sub.startDate);
     expiry.setDate(expiry.getDate() + sub.duration);
+
+    
+    //see if sub has expired already
+    //changes bg based on it
+    let expired = false;
+    let bg = "bg-green-600";
+
+    let today = new Date();
+
+    if(today.getTime() > expiry.getTime()){
+        expired  = true;
+        bg = "bg-slate-500"
+    }
+
+
+    //function to handle renew function
+    //basically just update the starting date to today
     
 
 
@@ -134,7 +151,7 @@ function SubTile({ sub }){
 
 
     return(
-        <div className=" h-auto bg-green-600 text-white rounded-lg flex flex-col items-center justify-evenly gap-8">
+        <div className={`h-auto ${bg} text-white rounded-lg flex flex-col items-center justify-evenly gap-8`}>
             <h1 className="text-2xl font-bold">{sub.name}</h1>
 
             <div className="flex flex-col items-center gap-3">
@@ -142,6 +159,20 @@ function SubTile({ sub }){
                 <div>Purchased On: {sub.startDate}</div>
                 <div>Duration: {sub.duration} Days</div>
                 <div>Expires on: {expiry.toDateString()}</div>
+
+
+                {expired ?
+                
+                <div>Expired</div>
+
+                :
+
+                <div> </div>
+                
+            
+                }
+
+
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={deleteSub}>Delete</button>
                 <button className="p-2 bg-red-700 rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
             </div>
