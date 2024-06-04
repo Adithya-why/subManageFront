@@ -5,9 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        sandy: "#F5EEC8",
+        sandy: "#faedcd",
         sea: "#7bdff2",
         pgreen: "#60d394",
+        lbrown: "#d4a373",
       }
     },
   },

@@ -73,7 +73,7 @@ export default function Subs( { user }){
 
 
             <div>
-                <Link to={"/add"}><button className="newbutton p-2 bg-amber-800 rounded text-white font-medium">Add Subscription</button></Link>
+                <Link to={"/add"}><button className="newbutton p-2 bg-sea rounded text-white font-medium">Add Subscription</button></Link>
             </div>
         </div>
     )
@@ -126,7 +126,7 @@ function SubTile({ sub }){
     //see if sub has expired already
     //changes bg based on it
     let expired = false;
-    let bg = "bg-[#84dcc6]";
+    let bg = "bg-pgreen";
 
     let today = new Date();
 
@@ -188,18 +188,18 @@ function SubTile({ sub }){
 
 
     return(
-        <div className={`h-auto ${bg} text-white rounded-lg flex items-center justify-evenly gap-8`}>
+        <div className={` subbb h-auto ${bg} text-white rounded-lg`}>
 
-            <h1 className="text-2xl font-bold">{sub.name}</h1>
+            <h1 className="text-3xl font-medium">{sub.name}</h1>
 
-            <div className="flex justify-center gap-16 basis-2/3 ">
+            <div className="flex flex-col items-center gap-16 ">
 
 
-                <div className="flex flex-col items-center gap-2 basis-2/3 text-xl">
-                    <div> <span className=" font-semibold text-amber-500">Price:</span>   ₹{sub.price}</div>
-                    <div> <span className="font-semibold text-amber-400">Purchased On:</span>  {sub.startDate}</div>
-                    <div> <span className="font-semibold text-amber-300">Duration:</span>  {sub.duration} Days</div>
-                    <div> <span className="font-semibold text-amber-200">Expires on:</span>  {expiry.toDateString()}</div>
+                <div className="flex flex-col items-center gap-2 basis-2/3 text-xl font-light">
+                    <div> <span className=" text-black font-extralight">Price:</span>   ₹{sub.price}</div>
+                    <div> <span className="text-black font-extralight">Purchased On:</span>  {sub.startDate}</div>
+                    <div> <span className="text-black font-extralight">Duration:</span>  {sub.duration} Days</div>
+                    <div> <span className="text-black font-extralight">Expires on:</span>  {expiry.toDateString()}</div>
                     {expired ?
                     
                     <div>Expired</div>
@@ -212,9 +212,9 @@ function SubTile({ sub }){
 
 
                 <div className="flex items-center justify-evenly gap-5">
-                    <button className="p-2 bg-[#184e77] rounded text-white font-medium" onClick={deleteSub}>Delete</button>
-                    <button className="p-2 bg-[#74c69d] rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
-                    <button className="p-2 bg-[#40916c] rounded text-white font-medium" onClick={renew}>Renew</button>
+                    <button className="p-2 bg-[#d90429] rounded text-white font-medium" onClick={deleteSub}>Delete</button>
+                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
+                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={renew}>Renew</button>
                 </div>
             </div>
         </div>
