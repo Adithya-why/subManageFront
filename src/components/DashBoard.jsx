@@ -110,11 +110,11 @@ export default function DashBoard({ user }){
             <h1 className="text-3xl font-medium">Dashboard</h1>
 
             <div className="flex justify-center gap-10  text-2xl  text-white font-thin">
-                <div className="p-4 bg-amber-800 rounded-lg">{count} Subscriptions</div>
-                <div className="p-4 bg-amber-800 rounded-lg">₹ {cost} Currently Spending</div>
-                <div className="p-4 bg-amber-800 rounded-lg">₹ {(pricePerMonth * 12).toFixed(0)} Spent per Year</div>
-                <div className="p-4 bg-amber-800 rounded-lg">₹ {pricePerMonth.toFixed(0)} Spent per month</div>
-                <div className="p-4 bg-amber-800 rounded-lg">₹ {(pricePerMonth/30).toFixed(0)} Spent per Day</div>
+                <div className="p-4 bg-pgreen rounded-lg">{count} Subscriptions</div>
+                <div className="p-4 bg-pgreen rounded-lg">₹ {cost} Currently Spending</div>
+                <div className="p-4 bg-pgreen rounded-lg">₹ {(pricePerMonth * 12).toFixed(0)} Spent per Year</div>
+                <div className="p-4 bg-pgreen rounded-lg">₹ {pricePerMonth.toFixed(0)} Spent per month</div>
+                <div className="p-4 bg-pgreen rounded-lg">₹ {(pricePerMonth/30).toFixed(0)} Spent per Day</div>
             </div>
 
             <div className="cgrid">
