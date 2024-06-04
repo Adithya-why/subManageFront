@@ -82,7 +82,7 @@ html,body{
 
   .cgrid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 350px;
     gap: 6rem;
     overflow: visible;
