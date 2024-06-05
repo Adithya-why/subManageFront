@@ -88,7 +88,10 @@ export default function Subs( { user }){
 //has options for delete and update
 function SubTile({ sub }){
 
-    
+    //to store cred information
+    //shown only when click see creds
+
+    let [creds,setcreds] = useState({});
 
     let navigate = useNavigate();
 
@@ -179,9 +182,46 @@ function SubTile({ sub }){
 
 
 
+    //function to view credentials
+
+    async function viewCred(){
+
+
+        //get cred of this sub with id
+        let cred = await fetch("http://localhost:3000/subscription/cred/"+ sub._id, {
+            method: "GET",
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": localStorage.getItem("token"),
+            }
+
+
+
+        });
+
+
+        let res = await cred.json();
+
+
+        //create new object with the credentials and save to stat
+        let temp = {
+            loginid: res.cred.loginid,
+            passwordHint: res.cred.passwordHint,
+        }
+
+        setcreds(temp);
+    }
+
+
     //navigate can actually pass data 
     //and cam be retreived with useLocation hook
     //so update button navigates to /update/id with data
+
+
+    //same for add cred
+    //sub object is passed to new cred page
+    //so cred is added to that specific sub
 
     //the sub object that is being updated is passed to update page form
 
@@ -207,6 +247,25 @@ function SubTile({ sub }){
                     <div> </div>
                     
                     }
+
+                    {
+
+                    //used to check if creds exist
+                    //if yes render them else empty div
+                    
+                    Object.keys(creds).length !== 0 ? 
+
+                    <div>
+                        <div>Login ID : {creds.loginid}</div>
+                        <div>Password Hint : {creds.passwordHint}</div>
+                    </div>
+
+                    :
+
+                    <div></div>
+
+
+                    }
                 </div>
 
 
@@ -216,6 +275,7 @@ function SubTile({ sub }){
                     <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
                     <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={renew}>Renew</button>
                     <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/cred" ,{state: {sub}})}>Add credentials</button>
+                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={viewCred}>View Credentials</button>
 
                 </div>
             </div>
