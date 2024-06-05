@@ -66,7 +66,9 @@ export default function Subs( { user }){
 
     return(
         <div>
-            <div className="subgrid m-10">
+
+            <h1 className="text-3xl text-center mt-4 md:mt-10  font-semibold md:font-thin">Your Subscriptions</h1>
+            <div className="subgrid mt-10 md:m-10">
             
                 {subarr}
             </div>
@@ -266,7 +268,7 @@ function SubTile({ sub }){
 
 
     return(
-        <div className={` subbb h-auto ${bg} text-white rounded-lg`}>
+        <div className={`subbb w-3/4 h-5/6 md:w-full md:h-auto ${bg} text-white rounded-lg`}>
 
             <h1 className="text-3xl font-medium">{sub.name}</h1>
 
