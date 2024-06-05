@@ -11,6 +11,7 @@ import Subs from './components/Subs';
 import NewSub from './components/NewSub';
 import UpdateSub from './components/UpdateSub';
 import DashBoard from './components/DashBoard';
+import NewCred from './components/NewCred';
 
 
 
@@ -88,6 +89,9 @@ function App() {
 
 
         <Route path='/dashboard' element={<DashBoard user={user}/>}/>
+
+
+        <Route path='/cred' element={<NewCred/>}/>
 
         </Routes>
       </Router>

@@ -215,6 +215,8 @@ function SubTile({ sub }){
                     <button className="p-2 bg-[#d90429] rounded text-white font-medium" onClick={deleteSub}>Delete</button>
                     <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
                     <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={renew}>Renew</button>
+                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/cred" ,{state: {sub}})}>Add credentials</button>
+
                 </div>
             </div>
         </div>
