@@ -23,22 +23,24 @@ export default function NavBar({ user, setuser }){
 
                 {!user.username ?
                 
-                <div className=" text-white flex items-center gap-8 basis-1/3">
+                <div className="hidden text-white md:flex items-center gap-8 basis-1/3">
                     <Link to={"/login"}><button className=" p-2 bg-[#d4a373] text-white rounded">Log in</button></Link>
                     <Link to={"/register"}><button className="p-2 bg-[#d4a373] text-white rounded">Sign up</button></Link>
                 </div>
+
+                //mobile stuff
                 
 
                 :
 
-                <div className="basis-1/3 flex items-center justify-evenly">
+                <div className="hidden basis-1/3 md:flex items-center justify-evenly">
                     <button className=" p-2 bg-[#d4a373] rounded text-white" onClick={logout}>Logout</button>
 
                     <Link to={"/subscriptions"}><button className=" p-2 bg-[#d4a373] rounded text-white">View Subs</button></Link>
 
                     <Link to={"/dashboard"}><button className=" p-2 bg-[#d4a373] rounded text-white">Dashboard</button></Link>
 
-                    <div className="text-[#636363] text-lg font-medium">Welcome {user.username}</div>
+                    <div className="text-[#636363] text-lg font-medium ">Welcome {user.username}</div>
                 
                 
                 </div>
