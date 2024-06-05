@@ -31,7 +31,8 @@ html,body{
   input{
     height: 4vh;
   }
-
+  
+ 
 
 }
 
@@ -126,8 +127,8 @@ html,body{
 
 
   .bgr{
-    width: 100%;
-    height: 30rem;
+    width: 50vw;
+    height: 60vh;
   }
   
 

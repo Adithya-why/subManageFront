@@ -148,10 +148,11 @@ export default function DashBoard({ user }){
 
 
     return(
-        <div className="mt-10 flex flex-col items-center gap-10">
+        <div className=" w-screen md:w-full mt-10 flex flex-col items-center gap-10">
+
             <h1 className="text-3xl font-medium">Dashboard</h1>
 
-            <div className="flex justify-center gap-10  text-2xl  text-white font-thin">
+            <div className="flex justify-center gap-4 text-center flex-col md:flex-row md:gap-10 text-2xl text-white font-thin">
                 <div className="p-4 bg-pgreen rounded-lg">{count} Subscriptions</div>
                 <div className="p-4 bg-pgreen rounded-lg">₹ {cost} Spending per cycle</div>
                 <div className="p-4 bg-pgreen rounded-lg">₹ {(pricePerMonth * 12).toFixed(0)} Spent per Year</div>
@@ -159,7 +160,7 @@ export default function DashBoard({ user }){
                 <div className="p-4 bg-pgreen rounded-lg">₹ {(pricePerMonth/30).toFixed(0)} Spent per Day</div>
             </div>
 
-            <div className="cgrid">
+            <div className="cgrid flex flex-col md:grid ">
 
 
 
@@ -234,13 +235,13 @@ export default function DashBoard({ user }){
 
 
 
-            <div className="flex justify-center gap-10 p-10 text-white rounded mb-10 mt-10 text-xl">
+            <div className="w-full flex items-center flex-col gap-6 md:justify-center  md:gap-10 md:flex-row p-10 text-white rounded mb-10 mt-10 text-xl">
 
 
-                <div className="flex flex-col gap-10 bg-green-600 p-10 w-1/3">
+                <div className="flex flex-col gap-10 bg-green-600 p-10 w-full md:w-1/3 h-full">
                     <h2 className="text-3xl">Earliest renewal</h2>
 
-                    <div>
+                    <div> 
                         <div>{earlySub.name}</div>
                         <div>Renewal on {earlyRenewal.toDateString()}</div>
                     </div>
@@ -249,7 +250,7 @@ export default function DashBoard({ user }){
 
 
 
-                <div className="flex flex-col gap-10 bg-green-600 p-10 w-1/3">
+                <div className="flex flex-col gap-10 bg-green-600 p-10 w-full md:w-1/3 h-full">
                     <h2 className="text-3xl">Most Expensive Subscription per cycle</h2>
 
                     <div>
@@ -262,7 +263,7 @@ export default function DashBoard({ user }){
 
 
 
-                <div className="flex flex-col gap-10 bg-green-600 p-10 w-1/3">
+                <div className="flex flex-col gap-10 bg-green-600 p-10 w-full md:w-1/3 h-full">
                     <h2 className="text-3xl">Most Expensive Subscription per Year</h2>
 
                     <div>
@@ -280,7 +281,7 @@ export default function DashBoard({ user }){
             </div>
 
 
-            <div className="bgr flex items-center justify-center">
+            <div className="bgr w-full flex items-center md:justify-center">
 
 
                 <Bar data={{
@@ -289,8 +290,9 @@ export default function DashBoard({ user }){
                         label: "Subscriptions by Price per cycle",
                         data: gdata.map((sub) => sub.price),
                         backgroundColor: "#7bdff2",
+                        
                     }]
-                }}/>
+                }} className="w-screen h-4/5"/>
             </div>
 
 
