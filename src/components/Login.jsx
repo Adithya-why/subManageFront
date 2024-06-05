@@ -71,7 +71,7 @@ export default function Login( { setuser }){
 
 
     return(
-        <div className="flex flex-col items-center mt-10 h-1/2 justify-evenly gap-5  bg-sandy">
+        <div className="flex flex-col items-center md:mt-10 h-3/4 md:h-1/2 justify-evenly md:gap-5  bg-sandy">
             <h1 className="text-4xl text-pgreen font-semibold">Login</h1>
             <form className="flex flex-col items-center justify-evenly gap-10 h-auto mt-10" onSubmit={(e)=> sendData(e)}> 
 

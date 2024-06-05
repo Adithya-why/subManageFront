@@ -27,7 +27,11 @@ html,body{
 
 /*Resposive stuff*/
 
-
+@media only screen and (max-width: 600px) {
+  input{
+    height: 4vh;
+  }
+}
 
 
 
