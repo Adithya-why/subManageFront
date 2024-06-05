@@ -70,7 +70,7 @@ export default function NewSub(){
 
     return(
         <div className="flex flex-col items-center mt-10 h-1/2 justify-evenly gap-5">
-            <h1 className="text-4xl text-green-600 font-semibold">New Subscription</h1>
+            <h1 className="text-4xl text-pgreen font-semibold">New Subscription</h1>
             <form className="flex flex-col items-center justify-evenly gap-10 h-auto mt-10" onSubmit={(e)=> sendData(e)}> 
 
                 <div className="flex flex-col items-center justify-evenly text-xl font-medium">
@@ -103,7 +103,7 @@ export default function NewSub(){
 
                 
 
-                <button type="submit" className="rounded p-3 text-lg font-bold bg-green-600 text-white">Add</button>
+                <button type="submit" className="rounded p-3 text-lg font-bold bg-pgreen text-white">Add</button>
 
             </form>
 

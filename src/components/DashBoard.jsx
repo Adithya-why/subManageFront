@@ -3,13 +3,24 @@ import { useNavigate } from "react-router-dom";
 
 
 //for charts 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+//need to import seperately for tree shaking
+import { Chart as ChartJS, ArcElement, Tooltip, Legend,CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+
+     } from "chart.js";
+
+
+
+import { Doughnut, Bar } from "react-chartjs-2";
 
 export default function DashBoard({ user }){
 
     //for tree shaking
-    ChartJS.register(ArcElement, Tooltip, Legend);
+    ChartJS.register(ArcElement, Tooltip, Legend,CategoryScale,
+        LinearScale,
+        BarElement,Title);
 
 
     let [subs,setsubs] = useState({});
@@ -116,7 +127,7 @@ export default function DashBoard({ user }){
     }
 
 
-    console.log(expSub);
+    // console.log(expSub);
 
     
 
@@ -152,9 +163,9 @@ export default function DashBoard({ user }){
 
 
 
-            <div className="flex flex-col items-center gap-10">
+            {/* <div className="flex flex-col items-center gap-10">
                     <Doughnut data={{
-                        labels: gdata.map((sub)=> sub.name),
+                        labels: gdata.map((sub)=> sub.name + " " + `(${sub.duration} Days)`),
                         datasets: [{
                             label: "Spends Per Cycle",
                             data: gdata.map((sub) => sub.price),
@@ -166,7 +177,7 @@ export default function DashBoard({ user }){
 
 
                     <h2>Spends per Cycle</h2>
-                </div>
+                </div> */}
 
 
                 <div className="flex flex-col items-center gap-10">
@@ -266,6 +277,20 @@ export default function DashBoard({ user }){
 
 
 
+            </div>
+
+
+            <div className="bgr flex items-center justify-center">
+
+
+                <Bar data={{
+                    labels: gdata.map((sub)=> sub.name + " " + `(${sub.duration} Days)`),
+                    datasets: [{
+                        label: "Subscriptions by Price per cycle",
+                        data: gdata.map((sub) => sub.price),
+                        backgroundColor: "#7bdff2",
+                    }]
+                }}/>
             </div>
 
 

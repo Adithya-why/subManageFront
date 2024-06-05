@@ -82,7 +82,7 @@ html,body{
 
   .cgrid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 350px;
     gap: 6rem;
     overflow: visible;
@@ -90,10 +90,16 @@ html,body{
 
 
   .cgrid h2{
-    color: brown;
+    color: black;
     font-weight: 200;
   }
 
+
+
+  .bgr{
+    width: 100%;
+    height: 30rem;
+  }
   
   
 
