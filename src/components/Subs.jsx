@@ -89,6 +89,7 @@ export default function Subs( { user }){
 function SubTile({ sub }){
 
     //to store cred information
+    //id stored for deletion
     //shown only when click see creds
 
     let [creds,setcreds] = useState({});
@@ -208,9 +209,33 @@ function SubTile({ sub }){
         let temp = {
             loginid: res.cred.loginid,
             passwordHint: res.cred.passwordHint,
+            id: res.cred._id,
         }
+        
 
         setcreds(temp);
+    }
+
+
+
+    //function to delete credential
+
+    async function delCred(){
+
+        let res = await fetch("http://localhost:3000/subscription/cred/"+ creds.id, {
+            method: "DELETE",
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": localStorage.getItem("token"),
+            }
+
+        });
+
+        let ress = await res.json();
+
+        console.log(ress);
+        navigate("/");
     }
 
 
@@ -258,6 +283,8 @@ function SubTile({ sub }){
                     <div>
                         <div>Login ID : {creds.loginid}</div>
                         <div>Password Hint : {creds.passwordHint}</div>
+
+                        <button onClick={delCred}>Delete Credential</button>
                     </div>
 
                     :
