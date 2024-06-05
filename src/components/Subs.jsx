@@ -205,6 +205,15 @@ function SubTile({ sub }){
         let res = await cred.json();
 
 
+        //if no credentials then show no credentials
+        if(!res.cred){
+            setcreds({
+                loginid: "No Credentials",
+                passwordHint: "No password hint"
+            });
+            return
+        }
+
         //create new object with the credentials and save to stat
         let temp = {
             loginid: res.cred.loginid,
@@ -222,6 +231,10 @@ function SubTile({ sub }){
 
     async function delCred(){
 
+        if(!creds.id){
+            return
+        }
+        
         let res = await fetch("http://localhost:3000/subscription/cred/"+ creds.id, {
             method: "DELETE",
 
@@ -257,7 +270,7 @@ function SubTile({ sub }){
 
             <h1 className="text-3xl font-medium">{sub.name}</h1>
 
-            <div className="flex flex-col items-center gap-16 ">
+            <div className="flex flex-col items-center gap-8 ">
 
 
                 <div className="flex flex-col items-center gap-2 basis-2/3 text-xl font-light">
@@ -280,11 +293,11 @@ function SubTile({ sub }){
                     
                     Object.keys(creds).length !== 0 ? 
 
-                    <div>
+                    <div className="flex flex-col items-center gap-1">
                         <div>Login ID : {creds.loginid}</div>
                         <div>Password Hint : {creds.passwordHint}</div>
 
-                        <button onClick={delCred}>Delete Credential</button>
+                        <button className="p-1 bg-[#d90429] rounded text-white font-medium text-sm" onClick={delCred}>Delete Credential</button>
                     </div>
 
                     :
@@ -297,12 +310,18 @@ function SubTile({ sub }){
 
 
 
-                <div className="flex items-center justify-evenly gap-5">
-                    <button className="p-2 bg-[#d90429] rounded text-white font-medium" onClick={deleteSub}>Delete</button>
-                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
-                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={renew}>Renew</button>
-                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/cred" ,{state: {sub}})}>Add credentials</button>
-                    <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={viewCred}>View Credentials</button>
+                <div className="flex flex-col items-center justify-evenly gap-5">
+
+                    <div className="flex items-center justify-evenly gap-5">
+                        <button className="p-2 bg-[#d90429] rounded text-white font-medium" onClick={deleteSub}>Delete</button>
+                        <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/update/"+sub._id, {state: {sub}})}>Update</button>
+                        <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={renew}>Renew</button>
+                    </div>
+
+                    <div className="flex items-center justify-evenly gap-5">
+                        <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={()=>navigate("/cred" ,{state: {sub}})}>Add credentials</button>
+                        <button className="p-2 bg-lbrown rounded text-white font-medium" onClick={viewCred}>View Credentials</button>
+                    </div>
 
                 </div>
             </div>
