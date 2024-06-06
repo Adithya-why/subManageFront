@@ -29,6 +29,9 @@ export default function DesignCard({ user }){
             <div>
                 <button className=" rounded-3xl p-4 text-lg font-bold bg-[#60d394] text-white"><Link to={startPath}>Get started</Link></button>
             </div>
+
+
+            <a href="https://www.flaticon.com/free-icons/menu-bar" title="menu bar icons">Menu bar icons created by Alfan Subekti - Flaticon</a>
         </div>
     )
 }
