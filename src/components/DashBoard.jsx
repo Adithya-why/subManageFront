@@ -139,14 +139,14 @@ export default function DashBoard({ user }){
 
    
     //prepare data for graphs
-
+    //to use map function
     let gdata = Array.from(subs);
 
     
 
 
 
-
+    //uses components from react chartjs to display graphs
     return(
         <div className=" w-screen md:w-full mt-10 flex flex-col items-center gap-10">
 

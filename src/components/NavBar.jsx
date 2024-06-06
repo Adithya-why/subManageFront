@@ -29,6 +29,9 @@ export default function NavBar({ user, setuser }){
     //used to determine whether mobile menu is shown
     let [mobileMenu, setMobileMenu] = useState('hidden')
 
+
+    //reverses state of mobileMEnu
+    //shows if hidden, hidden if shown already
     function showOrHideMenu(){
         if(mobileMenu=='hidden'){
             setMobileMenu('flex');
@@ -54,6 +57,19 @@ export default function NavBar({ user, setuser }){
     //has links to other pages
     //if user is logged in shows logout and other stuff
     //if not shows login and sign up
+
+
+
+    //four cases
+
+    //logged out mobile
+    //logged out 
+
+    //logged in mobile
+    //logged in
+
+
+    //for mobile versions menu icon is shown
     return(
        <div className="navbar dm-sans-class w-full h-full bg-[#7bdff2] flex items-center justify-evenly">
 
