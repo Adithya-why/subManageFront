@@ -66,7 +66,7 @@ export default function NewCred(){
 
 
         let ress = await res.json();
-        console.log(ress);
+        // console.log(ress);
         
         navigate("/subscriptions");
     }

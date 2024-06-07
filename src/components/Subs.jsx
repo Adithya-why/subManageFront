@@ -115,7 +115,7 @@ function SubTile({ sub }){
 
 
         let ress = await res.json();
-        console.log(ress);
+        // console.log(ress);
 
         
         navigate("/")
@@ -174,7 +174,7 @@ function SubTile({ sub }){
 
 
         let ress = await res.json();
-        console.log(ress);
+        // console.log(ress);
 
 
         navigate("/");
@@ -249,7 +249,7 @@ function SubTile({ sub }){
 
         let ress = await res.json();
 
-        console.log(ress);
+        // console.log(ress);
         navigate("/");
     }
 
