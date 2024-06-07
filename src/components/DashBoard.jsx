@@ -41,7 +41,7 @@ export default function DashBoard({ user }){
             navigate("/login");
         }
         async function getsubs(){
-            let res = await fetch("http://localhost:3000/subscription/", {
+            let res = await fetch("https://submanagebackend.onrender.com/subscription/", {
                 method: "GET",
 
                 headers: {

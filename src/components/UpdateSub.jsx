@@ -47,7 +47,7 @@ export default function UpdateSub(){
         }
 
 
-        let res = await fetch("http://localhost:3000/subscription/"+state.sub._id ,{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/"+state.sub._id ,{
             method: "PUT",
 
             body: JSON.stringify({

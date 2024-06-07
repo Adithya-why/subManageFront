@@ -39,7 +39,7 @@ export default function Login( { setuser }){
         e.preventDefault();
         
 
-        let res = await fetch("http://localhost:3000/subscription/login",{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/login",{
             method: "POST",
             mode: "cors",
             body: JSON.stringify({

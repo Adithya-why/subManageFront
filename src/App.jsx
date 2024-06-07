@@ -26,7 +26,7 @@ function App() {
 
     async function getUserWithJWT(){
 
-      let res = await fetch("http://localhost:3000/subscription/loginjwt",{
+      let res = await fetch("https://submanagebackend.onrender.com/subscription/loginjwt",{
         method: "POST",
 
         headers: {

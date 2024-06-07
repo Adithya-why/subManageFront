@@ -29,7 +29,7 @@ export default function Subs( { user }){
             navigate("/login");
         }
         async function getsubs(){
-            let res = await fetch("http://localhost:3000/subscription/", {
+            let res = await fetch("https://submanagebackend.onrender.com/subscription/", {
                 method: "GET",
 
                 headers: {
@@ -103,7 +103,7 @@ function SubTile({ sub }){
     async function deleteSub(){
         let id = sub._id;
 
-        let res = await fetch("http://localhost:3000/subscription/"+id, {
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/"+id, {
             method: "DELETE",
 
             headers: {
@@ -154,7 +154,7 @@ function SubTile({ sub }){
                     .split("T")[0];
         
         //update with new date
-        let res = await fetch("http://localhost:3000/subscription/"+sub._id ,{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/"+sub._id ,{
             method: "PUT",
 
             body: JSON.stringify({
@@ -191,7 +191,7 @@ function SubTile({ sub }){
 
 
         //get cred of this sub with id
-        let cred = await fetch("http://localhost:3000/subscription/cred/"+ sub._id, {
+        let cred = await fetch("https://submanagebackend.onrender.com/subscription/cred/"+ sub._id, {
             method: "GET",
 
             headers: {
@@ -237,7 +237,7 @@ function SubTile({ sub }){
             return
         }
         
-        let res = await fetch("http://localhost:3000/subscription/cred/"+ creds.id, {
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/cred/"+ creds.id, {
             method: "DELETE",
 
             headers: {

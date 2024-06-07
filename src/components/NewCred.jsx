@@ -48,7 +48,7 @@ export default function NewCred(){
         }
 
 
-        let res = await fetch("http://localhost:3000/subscription/cred" ,{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/cred" ,{
             method: "POST",
 
             body: JSON.stringify({

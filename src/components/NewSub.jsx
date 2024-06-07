@@ -42,7 +42,7 @@ export default function NewSub(){
         }
 
 
-        let res = await fetch("http://localhost:3000/subscription/",{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/",{
             method: "POST",
 
             body: JSON.stringify({

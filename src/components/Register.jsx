@@ -37,7 +37,7 @@ export default function Register( { setuser }){
         e.preventDefault();
         
 
-        let res = await fetch("http://localhost:3000/subscription/register",{
+        let res = await fetch("https://submanagebackend.onrender.com/subscription/register",{
             method: "POST",
             mode: "cors",
             body: JSON.stringify({
