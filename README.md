@@ -1,8 +1,11 @@
-# React + Vite
+# SubMan Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Subman is an online subscription management tool to store and manage all your subscriptions and analyze the cost. The Frontend is built with React and Tailwind CSS. It uses the chart.js library to visualize data
 
-Currently, two official plugins are available:
+To test use credentials
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Username** : user10
+
+**Password** : 123
+
+**Live Link**: [Click here](https://submanage.netlify.app/)
